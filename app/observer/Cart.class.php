@@ -1,10 +1,24 @@
 <?php
 class Cart
 {
+	private static $cart;
 	private $items;
 	private $listeners;
 
-	public function __construct()
+	public static function getInstance()
+	{
+		if (!isset(self::$cart)) {
+			self::$cart = new Cart();
+		}
+
+		if (!self::$cart instanceof Cart){
+			throw new RuntimeException(get_class($this));
+		}
+
+		return self::$cart;
+	}
+
+	private function __construct()
 	{
 		$this->items = array();
 		$this->listeners = array();
@@ -12,6 +26,7 @@ class Cart
 
 	public function addItem($item_cd)
 	{
+		var_dump($this->items);
 		$this->items[$item_cd] = (isset($this->items[$item_cd]) ? ++$this->items[$item_cd] : 1);
 		$this->notify();
 	}
@@ -37,22 +52,32 @@ class Cart
 		return array_key_exists($item_cd, $this->items);
 	}
 
-	public function addListner(CartListener $listener)
+	public function addListener(CartListener $listener)
 	{
-		$this->listeners[get_class($listner)] = $listener;
+		$this->listeners[get_class($listener)] = $listener;
+		$this->notify();
 	}
 
-	public function removeListner(CartListener $listener)
+	public function removeListener(CartListener $listener)
 	{
-		unnset($this->listeners[get_class($listner)]);
+		unnset($this->listeners[get_class($lisetner)]);
+	}
+
+	public function clear()
+	{
+		$this->items = array();
+		$this->notify();
 	}
 
 	private function notify()
 	{
 		foreach ($this->listeners as $listener) {
-			$listener->updata($this);
+			$listener->update($this);
 		}
 	}
 
-
+	public final function __clone()
+	{
+		throw new RuntimeException(get_class($this));
+	}
 }

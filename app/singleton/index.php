@@ -44,6 +44,18 @@ echo "<pre>";
 var_dump($test === $test2);
 echo "</pr>";
 
+echo "<pre>";
+echo $test->getHoge();
+echo "</pr>";
+echo "<pre>";
+echo $test2->getHoge();
+echo "</pr>";
+echo $test->setHoge();
+$test->clear();
+echo "<pre>";
+echo $test2->getHoge();
+echo "</pr>";
+
 /*
 $test3 = clone $test2;
 echo "<pre>";

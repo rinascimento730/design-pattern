@@ -39,6 +39,11 @@ class Test
 		self::$var++;
 	}
 
+	public function setHoge()
+	{
+		$this->hoge++;
+	}
+
 	public final function __clone()
 	{
 		// var_dump(get_class($this));
