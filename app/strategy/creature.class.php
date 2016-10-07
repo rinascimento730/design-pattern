@@ -33,6 +33,7 @@ abstract class Creature
 	public function get_name()
 	{
 		$this->express('私は'.$this->name);
+		$this->express('私は'.get_class($this)."です。");
 	}
 }
 
