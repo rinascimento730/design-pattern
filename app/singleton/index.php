@@ -51,7 +51,7 @@ echo "<pre>";
 echo $test2->getHoge();
 echo "</pr>";
 echo $test->setHoge();
-$test->clear();
+// $test->clear();
 echo "<pre>";
 echo $test2->getHoge();
 echo "</pr>";
