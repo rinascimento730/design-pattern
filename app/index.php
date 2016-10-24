@@ -13,6 +13,7 @@
 		<li><a href='/factory/factory_method_client.php'>Factory</a></li>
 		<li><a href='/singleton/index.php'>Shingleton</a></li>
 		<li><a href='/command/'>Command</a></li>
+		<li><a href='/adaptor/'>Adaptor</a></li>
 	</ul>
 </body>
 </html>
