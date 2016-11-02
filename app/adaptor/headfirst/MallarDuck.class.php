@@ -1,5 +1,5 @@
 <?php
-require_once 'Util.trait.php';
+require_once '../../common/Util.trait.php';
 require_once 'Duck.interface.php';
 
 class MallarDuck implements Duck

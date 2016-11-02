@@ -4,6 +4,9 @@ require_once 'WildTurkey.class.php';
 require_once 'TurkeyAdaptor.class.php';
 require_once 'DuckAdaptor.class.php';
 
+$hoge;
+var_dump($hoge);
+
 
 # MallarDuck
 $mallar_duck = new MallarDuck();

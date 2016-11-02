@@ -14,6 +14,7 @@
 		<li><a href='/singleton/index.php'>Shingleton</a></li>
 		<li><a href='/command/'>Command</a></li>
 		<li><a href='/adaptor/'>Adaptor</a></li>
+		<li><a href='/facade/'>Facade</a></li>
 	</ul>
 </body>
 </html>
