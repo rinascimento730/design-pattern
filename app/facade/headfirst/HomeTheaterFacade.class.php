@@ -7,12 +7,62 @@ require_once 'Projector.class.php';
 require_once 'TheaterLights.class.php';
 require_once 'CdPlayer.class.php';
 require_once 'DvdPlayer.class.php';
+require_once '../../common/Util.trait.php';
 
 class HomeTheaterFacade
 {
-	public function watchMovie()
+	use Util;
+
+	private $amp;
+	private $tuner;
+	private $dvd;
+	private $cd;
+	private $projector;
+	private $lights;
+	private $screen;
+	private $popper;
+
+	public function __construct(
+		Amplifier $amp,
+		Tuner $tuner,
+		DvdPlayer $dvd,
+		CdPlayer $cd,
+		Projector $projector,
+		TheaterLights $lights,
+		Screen $screen,
+		PopcornPopper $popper
+	)
 	{
-		echo "watchMovie<br>\n";
+		$this->amp       = $amp;
+		$this->tuner     = $tuner;
+		$this->dvd       = $dvd;
+		$this->cd        = $cd;
+		$this->projector = $projector;
+		$this->lights    = $lights;
+		$this->screen    = $screen;
+		$this->popper    = $popper;
+	}
+
+	public function watchMovie($movie = null)
+	{
+		if (!is_string($movie) || empty($movie)) {
+			throw new Exception("映画を指定してください。");
+		}
+
+		$this->express("映画を見る準備を始めます。");
+		$this->popper->on();
+		$this->popper->pop();
+
+		$this->lights->dim(10);
+		$this->screen->down();
+		$this->projector->on();
+		$this->projector->WideScreenMode();
+		$this->amp->on();
+		$this->amp->setDvd($this->dvd);
+		$this->amp->setSurroundSound();
+		$this->amp->setVolume(5);
+		$this->dvd->on();
+		$this->dvd->play();
 	}
 
 	public function endMovie()
