@@ -1,13 +1,17 @@
 <?php
+require_once '../../common/Util.trait.php';
+
 class Screen
 {
-	public function on()
+	use Util;
+
+	public function up()
 	{
-		
+		$this->express('スクリーンを上げます。');
 	}
 
 	public function down()
 	{
-		
+		$this->express('スクリーンを下げます。');
 	}
 }

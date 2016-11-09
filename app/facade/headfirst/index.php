@@ -3,8 +3,8 @@ require_once 'HomeTheaterFacade.class.php';
 
 $amp       = new Amplifier();
 $tuner     = new Tuner();
-$dvd       = new DvdPlayer();
-$cd        = new CdPlayer();
+$dvd       = new DvdPlayer($amp);
+$cd        = new CdPlayer($amp);
 $projector = new Projector();
 $lights    = new TheaterLights();
 $screen    = new Screen();
@@ -21,7 +21,7 @@ $home_theater = new HomeTheaterFacade(
 	$popper
 );
 
-$home_theater->watchMovie("0");
+$home_theater->watchMovie("E.T.");
 $home_theater->endMovie();
 $home_theater->listenToCd();
 $home_theater->endCd();

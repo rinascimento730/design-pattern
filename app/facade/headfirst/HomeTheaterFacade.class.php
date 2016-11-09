@@ -67,7 +67,15 @@ class HomeTheaterFacade
 
 	public function endMovie()
 	{
-		echo "endMovie<br>\n";
+		$this->express("ムービーシアターを停止します。");
+		$this->popper->off();
+		$this->lights->on();
+		$this->screen->up();
+		$this->projector->off();
+		$this->amp->off();
+		$this->dvd->stop();
+		$this->dvd->eject();
+		$this->dvd->off();
 	}
 
 	public function listenToCd()
