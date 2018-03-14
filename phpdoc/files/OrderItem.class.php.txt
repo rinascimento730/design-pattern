@@ -1,0 +1,71 @@
+<?php
+/**
+ * /Users/fujinaga/vagrant/design-pattern/app/facade/OrderItem.class.php
+ */
+require_once 'Item.class.php';
+
+/**
+ * 商品注文クラス
+ *
+ * 商品の注文を行います
+ *
+ * @author rinascimento730 <b.fujinaga@gmail.com>
+ * @copyright rinascimento730
+ * @package Model
+ * @version 001
+ */
+class OrderItem
+{
+	/**
+	 * 商品インスタンス
+	 * @var object $items 商品インスタンス
+	 */
+	private $item;
+
+	/**
+	 * 注文数
+	 * @var int $amount 注文数
+	 */
+	private $amount;
+
+	/**
+	 *  初期化処理
+	 *
+	 *  商品と注文数を設定
+	 *
+	 * @access public
+	 * @param  object $item   アイテムインスタンス
+	 * @param  int    $amount 商品注文数
+	 */
+	public function __construct(Item $item, $amount = 1)
+	{
+		$this->item = $item;
+		$this->amount = $amount;
+	}
+
+	/**
+	 *  注文商品を取得
+	 *
+	 *  商品を取得する
+	 *
+	 * @access public
+	 * @return object $this->item 商品インスタンス
+	 */
+	public function getItem()
+	{
+		return $this->item;
+	}
+
+	/**
+	 *  注文数を取得
+	 *
+	 *  注文数を取得する
+	 *
+	 * @access public
+	 * @return int $this->amount 注文数
+	 */
+	public function getAmount()
+	{
+		return $this->amount;
+	}
+}

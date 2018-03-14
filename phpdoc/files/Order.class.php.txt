@@ -1,0 +1,62 @@
+<?php
+/**
+ * /Users/fujinaga/vagrant/design-pattern/app/facade/Order.class.php
+ */
+require_once 'OrderItem.class.php';
+
+/**
+ * 注文クラス
+ *
+ * 注文情報を管理するクラス
+ *
+ * @author rinascimento730 <b.fujinaga@gmail.com>
+ * @copyright rinascimento730
+ * @package Model
+ * @version 001
+ */
+class Order
+{
+	/**
+	 * 商品配列
+	 * @var array $items 商品配列
+	 */
+	private $items;
+
+	/**
+	 *  初期化処理
+	 *
+	 *  商品一覧変数に配列を設定
+	 *
+	 * @access public
+	 */
+	public function __construct()
+	{
+		$this->items = array();
+	}
+
+	/**
+	 *  商品の中注文
+	 *
+	 *  商品を注文します
+	 *
+	 * @access public
+	 * @param  object $order_item 商品注文インスタンス
+	 */
+	public function addItem(OrderItem $order_item)
+	{
+		$this->items[$order_item->getItem()->getId()] = $order_item;
+	}
+
+	/**
+	 *  注文商品一覧取得
+	 *
+	 *  注文した商品一覧を取得します
+	 *
+	 * @access public
+	 * @return array $this->items 商品インスタンスの配列
+	 */
+	public function getItems()
+	{
+		return $this->items;
+	}
+}

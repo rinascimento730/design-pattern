@@ -15,6 +15,7 @@
 		<li><a href='/command/'>Command</a></li>
 		<li><a href='/adaptor/'>Adaptor</a></li>
 		<li><a href='/facade/'>Facade</a></li>
+		<li><a href='/template_method/'>Template Method</a></li>
 	</ul>
 </body>
 </html>
